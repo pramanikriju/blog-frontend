@@ -3,12 +3,21 @@ a {
 }
 
 h1 {
-  font-family: Staatliches;
+  font-family: "Proza Libre";
   font-size: 120px;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Karla";
+}
+
+.main-font {
+  font-family: "Proza Libre";
 }
 
 #category {
-  font-family: Staatliches;
+  font-family: "Proza Libre";
   font-weight: 500;
 }
 
@@ -32,7 +41,7 @@ h1 {
 
 .uk-navbar-container {
   background: #fff !important;
-  font-family: Staatliches;
+  font-family: "Proza Libre";
 }
 
 img:hover {
