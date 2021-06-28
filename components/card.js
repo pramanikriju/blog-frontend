@@ -1,33 +1,4 @@
-// import React from "react";
-// import Link from "next/link";
-// import Image from "./image";
-
-// const Card = ({ article }) => {
-//   return (
-//     <Link as={`/article/${article.slug}`} href="/article/[id]">
-//       <a className="uk-link-reset">
-//         <div className="uk-card uk-card-muted">
-//           <div className="uk-card-media-top">
-//             <Image image={article.image} />
-//           </div>
-//           <div className="uk-card-body">
-//             <p id="category" className="uk-text-uppercase">
-//               {article.category.name}
-//             </p>
-//             <p id="title" className="uk-text-large">
-//               {article.title}
-//             </p>
-//           </div>
-//         </div>
-//       </a>
-//     </Link>
-//   );
-// };
-
-// export default Card;
-
-//import Image from "next/image";
-import Image from "./image";
+import ImageComponent from "./image";
 import Link from "next/link";
 import Moment from "react-moment";
 import {
@@ -39,8 +10,10 @@ import {
   Avatar,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { getStrapiMedia } from "../lib/media";
 
 export default function Card({ article }) {
+  const authorImgUrl = getStrapiMedia(article.author.picture);
   return (
     <Box py={6}>
       <Link as={`/article/${article.slug}`} href="/article/[id]">
@@ -61,7 +34,7 @@ export default function Card({ article }) {
             mb={6}
             pos={"relative"}
           >
-            <Image image={article.image} layout={"fill"} />
+            <ImageComponent image={article.image} layout={"fill"} />
           </Box>
           <Stack>
             <Text
@@ -83,7 +56,14 @@ export default function Card({ article }) {
             <Text color={"gray.500"}>{article.description}</Text>
           </Stack>
           <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-            <Avatar src={article.author.picture} alt={"Author"} />
+            <Box>
+              <Avatar
+                name={article.author.name}
+                src={authorImgUrl}
+                alt={article.author.name}
+              />
+            </Box>
+
             <Stack direction={"column"} spacing={0} fontSize={"sm"}>
               <Text fontWeight={600}>{article.author.name}</Text>
               <Text color={"gray.500"}>

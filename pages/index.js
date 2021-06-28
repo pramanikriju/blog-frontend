@@ -3,16 +3,17 @@ import Articles from "../components/articles";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
+import { Container } from "@chakra-ui/react";
 
 const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
       <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{homepage.hero.title}</h1>
+        <Container>
+          {/* <h1>{homepage.hero.title}</h1> */}
           <Articles articles={articles} />
-        </div>
+        </Container>
       </div>
     </Layout>
   );

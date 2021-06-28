@@ -5,9 +5,11 @@ import Layout from "../../components/layout";
 import Image from "../../components/image";
 import Seo from "../../components/seo";
 import { getStrapiMedia } from "../../lib/media";
+import { Avatar } from "@chakra-ui/react";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
+  const authorImgUrl = getStrapiMedia(article.author.picture);
 
   const seo = {
     metaTitle: article.title,
@@ -34,17 +36,11 @@ const Article = ({ article, categories }) => {
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
-              {article.author.picture && (
-                <Image
-                  src={article.author.picture}
-                  image={article.author.picture}
-                  style={{
-                    position: "static",
-                    borderRadius: "50%",
-                    height: 30,
-                  }}
-                />
-              )}
+              <Avatar
+                name={article.author.name}
+                src={authorImgUrl}
+                alt={article.author.name}
+              />
             </div>
             <div className="uk-width-expand">
               <p className="uk-margin-remove-bottom">

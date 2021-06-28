@@ -4,10 +4,17 @@ import "../assets/css/style.css";
 import { createContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
+
+const theme = extendTheme({
+  fonts: {
+    heading: "Proza Libre",
+    body: "Karla",
+  },
+});
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
@@ -26,7 +33,7 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <GlobalContext.Provider value={global}>
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
           <Component {...pageProps} />
         </ChakraProvider>
       </GlobalContext.Provider>
