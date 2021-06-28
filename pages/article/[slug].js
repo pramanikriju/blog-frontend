@@ -36,6 +36,7 @@ const Article = ({ article, categories }) => {
             <div>
               {article.author.picture && (
                 <Image
+                  src={article.author.picture}
                   image={article.author.picture}
                   style={{
                     position: "static",
@@ -74,9 +75,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await fetchAPI(
-    `/articles?slug=${params.slug}`
-  );
+  const articles = await fetchAPI(`/articles?slug=${params.slug}`);
   const categories = await fetchAPI("/categories");
 
   return {
