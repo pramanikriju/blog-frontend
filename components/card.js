@@ -3,7 +3,6 @@ import Link from "next/link";
 import Moment from "react-moment";
 import {
   Box,
-  Center,
   Heading,
   Text,
   Stack,
