@@ -13,7 +13,10 @@ import {
 import { getStrapiMedia } from "../lib/media";
 
 export default function Card({ article }) {
-  const authorImgUrl = getStrapiMedia(article.author.picture);
+  const authorImgUrl =
+    article.author.picture !== undefined
+      ? getStrapiMedia(article.author.picture)
+      : false;
   return (
     <Box py={6}>
       <Link as={`/article/${article.slug}`} href="/article/[id]">
