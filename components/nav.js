@@ -39,7 +39,7 @@ const Nav = ({ categories }) => {
               <MenuList>
                 {categories.map((category) => {
                   return (
-                    <MenuItem>
+                    <MenuItem key={category.id}>
                       <Link
                         as={`/category/${category.slug}`}
                         href="/category/[id]"

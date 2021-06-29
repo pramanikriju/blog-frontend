@@ -9,10 +9,14 @@ const Articles = ({ articles }) => {
 
   return (
     <div>
-      <SimpleGrid minChildWidth="220px" gap="4" spacingX="40px" spacingY="20px">
+      <SimpleGrid columns={[1, 3, 3]} gap="4" spacingX="40px" spacingY="20px">
         {articles.map((article, i) => {
           return (
-            <Card article={article} key={`article__left__${article.slug}`} />
+            <Card
+              height="100%"
+              article={article}
+              key={`article__left__${article.slug}`}
+            />
           );
         })}
       </SimpleGrid>
