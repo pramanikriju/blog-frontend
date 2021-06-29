@@ -1,8 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import { Flex, Spacer, Box, Heading, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Spacer,
+  Box,
+  Heading,
+  Button,
+  useColorMode,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const Nav = ({ categories }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div>
       <nav>
@@ -15,20 +28,30 @@ const Nav = ({ categories }) => {
             </Link>
           </Box>
           <Spacer />
-          <Box>
-            {categories.map((category) => {
-              return (
-                <Link
-                  as={`/category/${category.slug}`}
-                  href="/category/[id]"
-                  key={category.id}
-                >
-                  <Button colorScheme="cyan" mr="4" variant="outline">
-                    {category.name}
-                  </Button>
-                </Link>
-              );
-            })}
+          <Box my="auto">
+            <Button onClick={toggleColorMode} mr="4">
+              {colorMode === "light" ? "🌙" : "☀"}
+            </Button>
+            <Menu mr="2">
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                Categories
+              </MenuButton>
+              <MenuList>
+                {categories.map((category) => {
+                  return (
+                    <MenuItem>
+                      <Link
+                        as={`/category/${category.slug}`}
+                        href="/category/[id]"
+                        key={category.id}
+                      >
+                        {category.name}
+                      </Link>
+                    </MenuItem>
+                  );
+                })}
+              </MenuList>
+            </Menu>
           </Box>
         </Flex>
       </nav>

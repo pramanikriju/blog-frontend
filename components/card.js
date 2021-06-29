@@ -17,7 +17,7 @@ export default function Card({ article }) {
       ? getStrapiMedia(article.author.picture)
       : false;
   return (
-    <Box py={6}>
+    <Box py={6} minHeight="519px">
       <Link as={`/article/${article.slug}`} href="/article/[id]">
         <Box
           maxW={"445px"}
