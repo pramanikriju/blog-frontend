@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./card";
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 
 const Articles = ({ articles }) => {
   // const leftArticlesCount = Math.ceil(articles.length / 5);
