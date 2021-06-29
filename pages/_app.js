@@ -5,7 +5,7 @@ import { createContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api";
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./../assets/theme";
+import theme from "../assets/theme";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
